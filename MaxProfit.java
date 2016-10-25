@@ -9,15 +9,14 @@ public class MaxProfit {
             return 0;
         }
 
-        int min = A[0];
-        int ret = 0;
+        int currentMin = A[0];
+        int max = 0;
 
-        for (int i = 0; i < A.length; i++) {
-            min = Math.min(min, A[i]);
-            int diff = A[i] - min;
-            ret = diff > 0 ? Math.max(ret, diff) : Math.max(ret, 0);
+        for (int i = 1; i < A.length; i++) {
+            currentMin = Math.min(currentMin, A[i]);
+            max = Math.max(A[i] - currentMin, max);
         }
 
-        return ret;
+        return max;
     }
 }
